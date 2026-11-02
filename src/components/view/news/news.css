@@ -1,4 +1,13 @@
+.news {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
 .news__item {
+    min-width: 280px;
     display: flex;
     flex-direction: column;
     margin: 1rem auto;
@@ -18,6 +27,7 @@
 .news__item .news__meta {
     position: relative;
     height: 200px;
+    overflow: hidden;
 }
 
 .news__item .news__meta-photo {
@@ -26,7 +36,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-size: cover;
+    width: 100%;
+    background-size: contain;
     background-position: center;
     transition: transform 0.2s;
 }
@@ -90,7 +101,9 @@
     margin-left: -10px;
     opacity: 0;
     vertical-align: middle;
-    transition: margin 0.3s, opacity 0.3s;
+    transition:
+        margin 0.3s,
+        opacity 0.3s;
 }
 
 .news__item .news__description .news__read-more a:hover:after {
