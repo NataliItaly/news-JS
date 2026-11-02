@@ -14,7 +14,7 @@ class News {
                 const newsClone = newsItemTemp.content.cloneNode(true) as DocumentFragment;
 
                 if (idx % 2) {
-                    getElement(newsClone, 'news__item').classList.add('alt');
+                    getElement(newsClone, '.news__item').classList.add('alt');
                 }
 
                 getElement(newsClone, '.news__meta-photo').style.backgroundImage = `url(${
