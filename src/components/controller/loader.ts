@@ -1,11 +1,11 @@
-type RequestOptions = Record<string, string | number | boolean>;
+export type RequestOptions = Record<string, string | number | boolean>;
 
-interface GetRequest {
+export interface GetRequest {
     endpoint: string;
     options?: RequestOptions;
 }
 
-type ResponseCallback<T> = (data: T) => void;
+export type ResponseCallback<T> = (data: T) => void;
 
 class Loader {
     private baseLink: string;
@@ -47,7 +47,7 @@ class Loader {
     }
 
     private load<T>(
-        method: string,
+        method: 'GET',
         endpoint: string,
         callback: ResponseCallback<T>,
         options: RequestOptions = {}
