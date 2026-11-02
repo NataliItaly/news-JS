@@ -1,15 +1,6 @@
 import './news.css';
 import type { Article } from '../../../types';
-
-function getElement<T extends HTMLElement>(parent: ParentNode, selector: string): T {
-    const element = parent.querySelector<T>(selector);
-
-    if (!element) {
-        throw new Error(`Element not found: ${selector}`);
-    }
-
-    return element;
-}
+import getElement from '../../../utils/getElement';
 
 class News {
     draw(data: Article[]) {
@@ -44,7 +35,7 @@ class News {
                 fragment.append(newsClone);
             });
 
-            const newsContainer = document.querySelector('.news');
+            const newsContainer: HTMLElement | null = document.querySelector('.news');
             if (newsContainer) {
                 newsContainer.innerHTML = '';
                 newsContainer.appendChild(fragment);
