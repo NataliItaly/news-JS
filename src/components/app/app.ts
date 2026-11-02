@@ -1,5 +1,6 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
+import getYear from '../../utils/getYear';
 
 class App {
     private readonly controller: AppController;
@@ -20,5 +21,7 @@ class App {
         }
     }
 }
+
+getYear();
 
 export default App;
