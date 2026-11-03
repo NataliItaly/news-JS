@@ -1,12 +1,13 @@
 import AppLoader from './appLoader';
 import type { ResponseCallback } from './loader';
 import type { NewsResponse, SourcesResponse } from '../../types';
+import { Endpoint } from '../../enums/endpoints';
 
 class AppController extends AppLoader {
     public getSources(callback: ResponseCallback<SourcesResponse>): void {
         super.getResp(
             {
-                endpoint: 'mocks/sources',
+                endpoint: Endpoint.Sources,
             },
             callback
         );
@@ -27,7 +28,7 @@ class AppController extends AppLoader {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(
                         {
-                            endpoint: 'mocks/everything',
+                            endpoint: Endpoint.Everything,
                             options: {
                                 sources: sourceId,
                             },

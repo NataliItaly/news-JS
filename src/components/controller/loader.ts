@@ -1,15 +1,18 @@
+import { Endpoint } from '../../enums/endpoints';
+import { HttpMethod } from '../../enums/http-method';
+
 export type RequestOptions = Record<string, string | number | boolean>;
 
 export interface GetRequest {
-    endpoint: string;
+    endpoint: Endpoint;
     options?: RequestOptions;
 }
 
 export type ResponseCallback<T> = (data: T) => void;
 
 class Loader {
-    private baseLink: string;
-    private options: RequestOptions;
+    private readonly baseLink: string;
+    private readonly options: RequestOptions;
 
     constructor(baseLink: string, options: RequestOptions) {
         this.baseLink = baseLink;
@@ -22,7 +25,7 @@ class Loader {
             console.error('No callback for GET response');
         }
     ): void {
-        this.load<T>('GET', endpoint, callback, options);
+        this.load<T>(HttpMethod.GET, endpoint, callback, options);
     }
 
     private errorHandler(res: Response): Response {
